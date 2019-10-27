@@ -2,6 +2,9 @@ package com.dolhon.moview.server.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -9,13 +12,23 @@ import javax.persistence.Table;
 @Table(name="mw_user_watched_table")
 public class UserWatchedMovieEntity {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long id;
+	
 	@ManyToOne
-	@Column(name="movie_id")
 	MovieEntity movie;
 
 	@ManyToOne
-	@Column(name="user_id")
 	UserEntity user;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public MovieEntity getMovie() {
 		return movie;
