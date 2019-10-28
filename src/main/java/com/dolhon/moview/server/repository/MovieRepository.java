@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dolhon.moview.server.entity.MovieEntity;
 
-public interface MovieRepository extends CrudRepository<MovieEntity, Integer> {
-
+public interface MovieRepository extends CrudRepository<MovieEntity, Long> {
+	
 }
