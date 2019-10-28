@@ -1,24 +1,32 @@
 package com.dolhon.moview.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dolhon.moview.server.entity.MovieEntity;
-import com.dolhon.moview.server.repository.MovieRepository;
+import com.dolhon.moview.server.entity.UserEntity;
+import com.dolhon.moview.server.entity.UserWatchedMovieEntity;
+import com.dolhon.moview.server.repository.UserWatchedMovieRepository;
 
 @Service
 public class MovieService {
-
-	@Autowired MovieRepository repository;
-
-	public void printMovie() {
-		Optional<MovieEntity> entity = repository.findById(1);
+	
+	@Autowired 
+	UserWatchedMovieRepository userWatchedMovieRepository;
+	
+	public void saveWatchedMovie(Long id) {
 		
-		entity.ifPresent(movie -> {
-		    System.out.println("Movie: " + movie.getName());    
-		});
+		UserWatchedMovieEntity entity = new UserWatchedMovieEntity();
+		MovieEntity movie = new MovieEntity();
+		UserEntity user = new UserEntity();
+		
+		movie.setId(id);
+		user.setId(1L);
+		
+		entity.setMovie(movie);
+		entity.setUser(user);
+		
+		userWatchedMovieRepository.save(entity);
 	}
 	
 }

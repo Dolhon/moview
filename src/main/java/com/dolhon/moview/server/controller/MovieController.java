@@ -11,6 +11,7 @@ import com.dolhon.moview.server.entity.UserEntity;
 import com.dolhon.moview.server.entity.UserWatchedMovieEntity;
 import com.dolhon.moview.server.repository.MovieRepository;
 import com.dolhon.moview.server.repository.UserWatchedMovieRepository;
+import com.dolhon.moview.service.MovieService;
 
 @RestController
 public class MovieController {
@@ -20,6 +21,9 @@ public class MovieController {
 
 	@Autowired 
 	UserWatchedMovieRepository userWatchedMovieRepository;
+	
+	@Autowired
+	MovieService service;
 
 	@RequestMapping(value = "/api/movies", method = RequestMethod.GET)
 	public Iterable<MovieEntity> fetchMovies() {
@@ -34,16 +38,6 @@ public class MovieController {
 	@RequestMapping(value = "/api/movies/{id}/watched", method = RequestMethod.POST)
 	public void saveWatchedMovie(@PathVariable Long id) {
 		
-		UserWatchedMovieEntity entity = new UserWatchedMovieEntity();
-		MovieEntity movie = new MovieEntity();
-		UserEntity user = new UserEntity();
-		
-		movie.setId(id);
-		user.setId(1L);
-		
-		entity.setMovie(movie);
-		entity.setUser(user);
-		
-		userWatchedMovieRepository.save(entity);
+		service.saveWatchedMovie(id);
 	}
 }
