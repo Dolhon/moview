@@ -5,6 +5,9 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+# Ignore Gradle GUI config
+gradle-app.setting
+
 ### STS ###
 .apt_generated
 .classpath
@@ -30,3 +33,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+### Java ###
+*.class
