@@ -1,15 +1,17 @@
 package com.dolhon.moview.server.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
-@Table(name="mw_user_watched_table")
+@Table(name="mw_user_watched_movie")
 public class UserWatchedMovieEntity {
 	
 	@Id
@@ -17,9 +19,13 @@ public class UserWatchedMovieEntity {
 	Long id;
 	
 	@ManyToOne
+	@JoinColumn(name = "movie_id")
+	@JsonBackReference
 	MovieEntity movie;
 
 	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	UserEntity user;
 
 	public Long getId() {
