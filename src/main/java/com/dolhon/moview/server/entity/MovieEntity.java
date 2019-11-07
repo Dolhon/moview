@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="mw_movie")
@@ -22,7 +22,6 @@ public class MovieEntity {
 	float rating;
 	
 	@OneToMany(mappedBy = "movie")
-	@JsonManagedReference
 	Set<UserWatchedMovieEntity> watchedMovies;
 
 	public Long getId() {
@@ -48,7 +47,8 @@ public class MovieEntity {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-
+	
+	@JsonIgnore
 	public Set<UserWatchedMovieEntity> getWatchedMovie() {
 		return watchedMovies;
 	}
