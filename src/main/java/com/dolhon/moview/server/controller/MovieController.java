@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dolhon.moview.server.entity.MovieEntity;
-import com.dolhon.moview.server.entity.UserEntity;
 import com.dolhon.moview.server.entity.UserWatchedMovieEntity;
 import com.dolhon.moview.server.repository.MovieRepository;
 import com.dolhon.moview.server.repository.UserWatchedMovieRepository;
