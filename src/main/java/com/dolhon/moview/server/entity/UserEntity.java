@@ -22,7 +22,7 @@ public class UserEntity {
 	
 	@OneToMany(mappedBy = "user")
 	@JsonManagedReference
-	Set<UserWatchedMovieEntity> watchedMovie;
+	Set<UserWatchedMovieEntity> watchedMovies;
 
 	public Long getId() {
 		return id;
