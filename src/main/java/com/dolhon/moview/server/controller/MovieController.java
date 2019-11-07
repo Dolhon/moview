@@ -10,7 +10,7 @@ import com.dolhon.moview.server.entity.MovieEntity;
 import com.dolhon.moview.server.entity.UserWatchedMovieEntity;
 import com.dolhon.moview.server.repository.MovieRepository;
 import com.dolhon.moview.server.repository.UserWatchedMovieRepository;
-import com.dolhon.moview.service.MovieService;
+import com.dolhon.moview.server.service.MovieService;
 
 @RestController
 public class MovieController {
