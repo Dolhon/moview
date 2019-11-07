@@ -1,4 +1,4 @@
-package com.dolhon.moview.service;
+package com.dolhon.moview.server.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
