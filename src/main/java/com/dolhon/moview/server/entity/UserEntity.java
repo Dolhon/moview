@@ -41,10 +41,10 @@ public class UserEntity {
 	}
 
 	public Set<UserWatchedMovieEntity> getWatchedMovie() {
-		return watchedMovie;
+		return watchedMovies;
 	}
 
 	public void setWatchedMovie(Set<UserWatchedMovieEntity> watchedMovie) {
-		this.watchedMovie = watchedMovie;
+		this.watchedMovies = watchedMovie;
 	}
 }
